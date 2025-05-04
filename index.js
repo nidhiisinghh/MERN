@@ -29,10 +29,10 @@ app.use((req,res)=>{
 </html>`)
  })
 
-// app.listen(8000,(err)=>{
-//     if(err)
-//         console.log("err",err);
-//     console.log("server listening on 8000")
-// });
+app.listen(8000,(err)=>{
+    if(err)
+        console.log("err",err);
+    console.log("server listening on 8000")
+});
 
 module.exports = app;

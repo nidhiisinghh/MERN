@@ -29,7 +29,7 @@ let getAllProducts = async (req, res) => {
         }
     }
 
-    let allProducts = await products.find(query).skip(skip).limit(limit);
+    let allProducts = await products.find(querry).skip(skip).limit(limit);
     res.status(200).json({success: true, message: "Products fetched successfully", data: allProducts})}
 
 let getProductByID = async (req, res) => {

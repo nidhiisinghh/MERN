@@ -81,8 +81,13 @@ let signupUser = async (req, res) => {
 let updateUser = async (req, res) => {
     let userId = req.params.id; 
     const {name, phone} = req.body; 
-    if(!userId) {
-        return res.status(404).json({success: false, message: "user does not exist."})
+    if (!userId) {
+        return res.status(400).json({ success: false, message: "User ID is required." });
+    }
+
+    const user = await users.findById(userId);
+    if (!user) {
+        return res.status(404).json({ success: false, message: "User not found." });
     }
 
     let updatedUser = {}; 
@@ -101,8 +106,13 @@ let updateUser = async (req, res) => {
 
 let deleteUser = async (req, res) => {
     let userId = req.params.id; 
-    if (!userId){
-        return res.status(400).json({success: false, message: "user not found"})
+    if (!userId) {
+        return res.status(400).json({ success: false, message: "User ID is required." });
+    }
+
+    const user = await users.findById(userId);
+    if (!user) {
+        return res.status(404).json({ success: false, message: "User not found." });
     }
 
     await users.deleteOne({

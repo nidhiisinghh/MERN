@@ -32,7 +32,7 @@ let getAllProducts = async (req, res) => {
     let allProducts = await products.find(query).skip(skip).limit(limit);
     res.status(200).json({success: true, message: "Products fetched successfully", data: allProducts})}
 
-let findProductByID = async (req, res) => {
+let getProductByID = async (req, res) => {
     let productId = req.params.id; 
     let product = await products.findById(productId)
 
@@ -95,7 +95,7 @@ let deleteProduct = async (req, res) => {
 
 module.exports = {
     getAllProducts,
-    findProductByID,
+    getProductByID,
     createProduct,
     updateProduct,
     deleteProduct

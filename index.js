@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const productRouter = require("./routes/product.router")
@@ -6,6 +7,7 @@ const userRouter = require("./routes/user.router")
 const orderRouter = require("./routes/order.router")
 const mongoose = require("./db/connection")
 const app= express();
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/product",productRouter)
@@ -33,4 +35,4 @@ app.use((req,res)=>{
 //     console.log("server listening on 8000")
 // });
 
-module.exports = app; 
+module.exports = app;

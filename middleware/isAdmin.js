@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
     console.log("req.headers", req.headers); 
     const token = req.headers["x-access-token"]; 
     if(!token) {
-        res.status(403).json({message: "no toekn found."})
+        res.status(403).json({message: "No token found."})
     }
 
     try {

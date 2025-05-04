@@ -51,7 +51,7 @@ const createOrder = async (req, res) =>{
 const getAllOrder = async (req, res) => {
     try {
         const allOrders = await Order.find({}); 
-        res.status(202).json({success: true, message: "All orders fetched successfully", order: getAllOrder})
+        res.status(202).json({success: true, message: "All orders fetched successfully", order: allOrders})
     }
     catch(err) {
         console.log("errors", err); 

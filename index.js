@@ -10,6 +10,8 @@ const app= express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 8080
+
 app.use("/product",productRouter)
 app.use("/user",userRouter)
 app.use("/order", orderRouter)
@@ -29,7 +31,7 @@ app.use((req,res)=>{
 </html>`)
  })
 
-app.listen(8000,(err)=>{
+app.listen(PORT,(err)=>{
     if(err)
         console.log("err",err);
     console.log("server listening on 8000")
